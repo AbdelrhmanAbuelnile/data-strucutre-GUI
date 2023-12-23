@@ -20,6 +20,7 @@ public class LinkedListVisualization extends JPanel {
         JButton backButton = new JButton("Back to Home");
         JButton addButton = new JButton("Add");
         JButton removeButton = new JButton("Remove");
+        JButton clearButton = new JButton("Clear List");
         JTextField inputField = new JTextField(10);
 
         backButton.addActionListener(e -> {
@@ -28,6 +29,14 @@ public class LinkedListVisualization extends JPanel {
             parent.add(new HomePanel(guiProject));
             parent.revalidate();
             parent.repaint();
+        });
+
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                linkedList.clear();  // Clear the LinkedList
+                updateList();  // Update the list to reflect the change
+            }
         });
 
         addButton.addActionListener(e -> {
@@ -62,6 +71,7 @@ public class LinkedListVisualization extends JPanel {
         controlPanel.add(inputField);
         controlPanel.add(addButton);
         controlPanel.add(removeButton);
+        controlPanel.add(clearButton);
 
         setLayout(new BorderLayout());
 //        add(backButton, BorderLayout.NORTH);

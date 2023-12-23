@@ -21,6 +21,7 @@ public class StackVisualization extends JPanel {
         JButton backButton = new JButton("Back to Home");
         JButton pushButton = new JButton("Push");
         JButton popButton = new JButton("Pop");
+        JButton clearButton = new JButton("Clear Stack");
         JTextField inputField = new JTextField(10);
         
         
@@ -32,6 +33,14 @@ public class StackVisualization extends JPanel {
                 parent.add(new HomePanel(guiProject));
                 parent.revalidate();
                 parent.repaint();
+            }
+        });
+
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stack.clear();  // Clear the stack
+                updateStackList();  // Update the stack list to reflect the change
             }
         });
 
@@ -71,6 +80,7 @@ public class StackVisualization extends JPanel {
         controlPanel.add(inputField);
         controlPanel.add(pushButton);
         controlPanel.add(popButton);
+        controlPanel.add(clearButton);
         // controlPanel.add(backButton);
         
         setLayout(new BorderLayout());

@@ -33,6 +33,7 @@ public class QueueVisualization extends JPanel {
         JButton backButton = new JButton("Back to Home");
         JButton enqueueButton = new JButton("Enqueue");
         JButton dequeueButton = new JButton("Dequeue");
+        JButton clearButton = new JButton("Clear");
         JTextField inputField = new JTextField(10);
 
         backButton.addActionListener(new ActionListener() {
@@ -42,6 +43,13 @@ public class QueueVisualization extends JPanel {
                 parent.add(new HomePanel(guiProject));
                 parent.revalidate();
                 parent.repaint();
+            }
+        });
+
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                queue.clear();
+                updateQueueList();
             }
         });
 
@@ -102,6 +110,7 @@ public class QueueVisualization extends JPanel {
         controlPanel.add(inputField);
         controlPanel.add(enqueueButton);
         controlPanel.add(dequeueButton);
+        controlPanel.add(clearButton);
 //        controlPanel.add(backButton);
         
         setLayout(new BorderLayout());
